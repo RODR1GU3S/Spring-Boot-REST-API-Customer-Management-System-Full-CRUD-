@@ -1,151 +1,144 @@
-# Spring Boot REST API – Customer Management System (Full CRUD)
+# Spring Boot CRUD API
 
-A professional RESTful backend API built using **Java** and **Spring Boot**, following clean layered architecture principles.
+## Sobre o projeto
 
-This project demonstrates a complete customer management system with:
+API REST desenvolvida com Java e Spring Boot para gerenciamento de clientes, implementando operações completas de CRUD (Create, Read, Update, Delete).
 
-- Full CRUD operations
-- Pagination and sorting
-- DTO pattern
-- Bean Validation
-- Custom exception handling
-- JPA/Hibernate integration
-- PostgreSQL configuration
+O projeto foi estruturado seguindo boas práticas de desenvolvimento backend, com arquitetura em camadas, tratamento de exceções e validações, simulando um cenário real de aplicação corporativa.
 
 ---
 
-## 🚀 Technologies
+## Tecnologias utilizadas
 
-- Java 11+
-- Spring Boot
-- Spring Data JPA
-- Hibernate
-- PostgreSQL
-- Maven
-- Bean Validation
-- DTO Pattern
+* Java
+* Spring Boot
+* Spring Data JPA
+* Hibernate
+* Banco de dados H2
+* Maven
 
 ---
 
-## 📁 Project Structure
+## Conceitos aplicados
 
-```
-src/
-└── main/
-    └── java/
-        └── com.devsuperior.desafioCRUDdeClientes
-            ├── controllers
-            │   ├── ClientController.java
-            │   └── handlers/
-            │       └── ControllerExceptionHandler.java
-            ├── services
-            │   ├── ClientService.java
-            │   └── exceptions/
-            │       └── ResourceNotFoundException.java
-            ├── repositories
-            │   └── ClientRepository.java
-            ├── entities
-            │   └── Client.java
-            └── dto
-                ├── ClientDTO.java
-                ├── FieldMessage.java
-                └── ValidationError.java
-```
+* Arquitetura em camadas (Controller, Service, Repository)
+* Padrão DTO para transferência de dados
+* Tratamento global de exceções
+* Validação de dados com Bean Validation
+* CRUD completo com boas práticas REST
+* Uso de ResponseEntity para controle de respostas HTTP
+* Organização de código seguindo Clean Code e SOLID
 
 ---
 
-## 📌 API Endpoints
+## Funcionalidades
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET    | `/clients` | List clients (pagination supported) |
-| GET    | `/clients/{id}` | Get client by ID |
-| POST   | `/clients` | Create new client |
-| PUT    | `/clients/{id}` | Update client |
-| DELETE | `/clients/{id}` | Delete client |
+A API permite o gerenciamento completo de clientes:
 
----
-
-## 📄 Example Requests
-
-### 🔎 GET Clients (Paginated)
-
-```http
-GET http://localhost:8080/clients?page=0&size=10&sort=id
-```
+* Criar um cliente
+* Listar todos os clientes
+* Buscar cliente por ID
+* Atualizar dados de cliente
+* Deletar cliente
 
 ---
 
-### ➕ POST Create Client
+## Endpoints principais
 
-```http
-POST http://localhost:8080/clients
-```
+### Clientes
 
-```json
+* GET /clients
+* GET /clients/{id}
+* POST /clients
+* PUT /clients/{id}
+* DELETE /clients/{id}
+
+---
+
+## Exemplo de requisição
+
+### Criar cliente (POST /clients)
+
+```json id="exemplo-json"}
 {
   "name": "Maria Silva",
-  "cpf": "12345678901",
-  "income": 6500.0,
-  "birthDate": "1985-12-08",
-  "children": 2
+  "email": "maria@email.com",
+  "phone": "11999999999"
 }
 ```
 
 ---
 
-## ⚙️ How to Run the Project
+## Como executar o projeto
 
-### 1️⃣ Clone the repository
+```bash id="execucao-projeto"}
+# Clonar repositório
+git clone https://github.com/RODR1GU3S/spring-boot-crud-api
 
-```bash
-git clone https://github.com/RODR1GU3S/Spring-Boot-REST-API-Customer-Management-System-Full-CRUD-
+# Entrar na pasta
+cd spring-boot-crud-api
+
+# Executar o projeto
+./mvnw spring-boot:run
 ```
 
-### 2️⃣ Configure Database
-
-Edit `application.properties` and configure your PostgreSQL connection:
-
-```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/your_database
-spring.datasource.username=your_username
-spring.datasource.password=your_password
-```
-
-### 3️⃣ Run the application
-
-```bash
-mvn spring-boot:run
-```
-
-The API will start at:
-
-```
+A aplicação estará disponível em:
 http://localhost:8080
-```
 
 ---
 
-## 🧠 Key Backend Concepts Demonstrated
+## 🧪 Banco de dados H2
 
-- Clean layered architecture
-- Separation of concerns
-- DTO-based data transfer
-- RESTful design standards
-- Centralized exception handling
-- Structured validation error responses
-- Pagination and sorting
-- Database persistence with Spring Data JPA
+Acesse o console do banco em:
+http://localhost:8080/h2-console
 
 ---
 
-## 🎯 Purpose
+## Tratamento de erros
 
-This project was developed to demonstrate professional backend API development using Spring Boot, aligned with real-world business logic and scalable system design.
+A API possui tratamento de exceções customizado, retornando respostas padronizadas com:
+
+* Código HTTP adequado
+* Mensagem de erro
+* Timestamp
+* Caminho da requisição
 
 ---
 
-## 👨‍💻 Author
+## Documentação
 
-Ronaldo Rodrigues  
-Backend Java & Spring Boot Developer
+Você pode adicionar aqui:
+
+* Swagger/OpenAPI (recomendado)
+* Prints das requisições (Postman/Insomnia)
+
+---
+
+## Objetivo do projeto
+
+Este projeto foi desenvolvido com o objetivo de consolidar conhecimentos em APIs REST utilizando Spring Boot, aplicando padrões de mercado para construção de aplicações backend robustas e bem estruturadas.
+
+---
+
+## Contexto profissional
+
+O desenvolvimento deste projeto também reflete a aplicação de análise de regras de negócio e validação de dados, habilidades adquiridas ao longo da experiência profissional em ambientes corporativos.
+
+---
+
+## Melhorias futuras
+
+* Implementação de autenticação com JWT
+* Integração com PostgreSQL
+* Documentação com Swagger/OpenAPI
+* Deploy em ambiente cloud
+
+---
+
+## Autor
+
+Ronaldo Rodrigues
+Desenvolvedor Backend Java
+
+* LinkedIn: https://www.linkedin.com/in/ronaldo-rodr1gu3s
+* GitHub: https://github.com/RODR1GU3S
